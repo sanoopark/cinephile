@@ -65,7 +65,9 @@ export default {
         `&s=${state.keyword}&page=${state.pageNumber}`
       );
 
-      await commit('changeLoadingStatus');
+      if (state.isLoading === true) {
+        await commit('changeLoadingStatus');
+      }
 
       if (!Search) {
         return;

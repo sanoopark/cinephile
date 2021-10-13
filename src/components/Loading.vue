@@ -1,9 +1,19 @@
 <template>
-  <div class="loading">
+  <div class="loading" @click="hideLoadingAnimation">
     <div class="loading__overlay"></div>
-    <img src="../../static/loading.gif" alt="" class="loading__image" />
+    <img src="../../static/loading.gif" alt="Loading" class="loading__image" />
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    hideLoadingAnimation() {
+      this.$store.commit('searchResults/changeLoadingStatus');
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 .loading {
